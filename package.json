@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/JVMartin/snek#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.5",
     "jest": "^24.1.0",
     "ts-jest": "^23.10.5",
     "ts-node": "^8.0.2",
