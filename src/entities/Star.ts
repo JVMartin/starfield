@@ -9,16 +9,26 @@ export class Star extends Entity {
     constructor(private pixiApplication: PixiApplication) {
         super();
 
+
         this.gfx = new PIXI.Graphics();
-        this.gfx.beginFill(0xFFFFFF);
-        this.gfx.drawRect(0, 0, 2, 2);
-        this.gfx.endFill();
-        this.gfx.x = Utils.randomInt(0, this.pixiApplication.width);
+        this.reset();
         this.gfx.y = Utils.randomInt(0, this.pixiApplication.height);
 
-        this.vy = Utils.randomFloat(0, 2.5);
-
         pixiApplication.application.stage.addChild(this.gfx);
+    }
+
+    /**
+     * Same as in constructor, except start from the top of the screen (y=0).
+     */
+    public reset(): void {
+        const size = Utils.randomInt(1, 3);
+        this.gfx.beginFill(0xFFFFFF);
+        this.gfx.drawCircle(0, 0, size);
+        this.gfx.endFill();
+        this.gfx.x = Utils.randomInt(0, this.pixiApplication.width);
+        this.gfx.y = 0;
+
+        this.vy = Utils.randomFloat(0.5, 3);
     }
 
     public update(): void {
