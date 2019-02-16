@@ -14,7 +14,7 @@ export class Game {
     }
 
     public run(): void {
-        requestAnimationFrame(this.run.bind(this));
+        requestAnimationFrame(() => this.run());
 
         this.entities.map(entity => entity.update());
     }
