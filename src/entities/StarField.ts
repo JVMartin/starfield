@@ -7,11 +7,14 @@ export class StarField extends Entity {
 
     constructor(private pixiApplication: PixiApplication) {
         super();
+    }
 
+    public createStars(n: number): void {
         this.stars = [];
-        this.stars.push(
-            new Star(this.pixiApplication),
-        );
+
+        for (let i = 0; i < n; ++i) {
+            this.stars.push(new Star(this.pixiApplication));
+        }
     }
 
     public update(): void {

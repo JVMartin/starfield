@@ -10,7 +10,10 @@ export class Game {
     }
 
     public populate(): void {
-        this.entities.push(new StarField(this.pixiApplication));
+        const starField = new StarField(this.pixiApplication);
+        starField.createStars(100);
+
+        this.entities.push(starField);
     }
 
     public run(): void {
