@@ -1,0 +1,19 @@
+{
+  "name": "snek",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JVMartin/snek.git"
+  },
+  "author": "Jacob Martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JVMartin/snek/issues"
+  },
+  "homepage": "https://github.com/JVMartin/snek#readme"
+}
