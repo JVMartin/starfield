@@ -4,6 +4,7 @@ import { Utils } from '../services/Utils';
 
 export class Star extends Entity {
     private gfx: PIXI.Graphics;
+    private vy: number;
 
     constructor(private pixiApplication: PixiApplication) {
         super();
@@ -15,11 +16,13 @@ export class Star extends Entity {
         this.gfx.x = Utils.randomInt(0, this.pixiApplication.width);
         this.gfx.y = Utils.randomInt(0, this.pixiApplication.height);
 
+        this.vy = Utils.randomFloat(0, 2.5);
+
         pixiApplication.application.stage.addChild(this.gfx);
     }
 
     public update(): void {
-        this.gfx.y += 1;
+        this.gfx.y += this.vy;
         if (this.gfx.y > this.pixiApplication.height) {
             this.gfx.y = 0;
         }
