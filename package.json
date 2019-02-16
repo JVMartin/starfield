@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/JVMartin/snek/issues"
   },
-  "homepage": "https://github.com/JVMartin/snek#readme"
+  "homepage": "https://github.com/JVMartin/snek#readme",
+  "devDependencies": {
+    "jest": "^24.1.0",
+    "ts-jest": "^23.10.5",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  }
 }
