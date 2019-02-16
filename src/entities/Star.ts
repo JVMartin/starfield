@@ -34,7 +34,7 @@ export class Star extends Entity {
     public update(): void {
         this.gfx.y += this.vy;
         if (this.gfx.y > this.pixiApplication.height) {
-            this.gfx.y = 0;
+            this.reset();
         }
     }
 }
