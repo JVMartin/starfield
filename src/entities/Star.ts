@@ -27,7 +27,7 @@ export class Star extends Entity {
         this.gfx.drawCircle(0, 0, size);
         this.gfx.endFill();
         this.gfx.x = Utils.randomInt(0, this.pixiApplication.width);
-        this.gfx.y = 0;
+        this.gfx.y = -1 * Utils.randomInt(0, 100);
 
         this.vy = Utils.randomFloat(0.5, 3);
     }
