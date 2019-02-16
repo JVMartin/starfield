@@ -11,7 +11,7 @@ export class Game {
 
     public populate(): void {
         const starField = new StarField(this.pixiApplication);
-        starField.createStars(100);
+        starField.createStars(250);
 
         this.entities.push(starField);
     }

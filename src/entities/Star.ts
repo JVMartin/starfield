@@ -22,7 +22,7 @@ export class Star extends Entity {
      */
     public reset(): void {
         const size = Utils.randomInt(1, 3);
-        this.gfx.beginFill(0xFFFFFF);
+        this.gfx.beginFill(0xFFFFFF, Utils.randomFloat(0.5, 1));
         this.gfx.drawCircle(0, 0, size);
         this.gfx.endFill();
         this.gfx.x = Utils.randomInt(0, this.pixiApplication.width);
