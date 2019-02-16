@@ -21,6 +21,7 @@ export class Star extends Entity {
      * Same as in constructor, except start from the top of the screen (y=0).
      */
     public reset(): void {
+        this.gfx.clear();
         const size = Utils.randomInt(1, 3);
         this.gfx.beginFill(0xFFFFFF, Utils.randomFloat(0.5, 1));
         this.gfx.drawCircle(0, 0, size);
