@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JVMartin/snek.git"
+    "url": "git+https://github.com/JVMartin/stars.git"
   },
   "author": "Jacob Martin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JVMartin/snek/issues"
+    "url": "https://github.com/JVMartin/stars/issues"
   },
-  "homepage": "https://github.com/JVMartin/snek#readme",
+  "homepage": "https://github.com/JVMartin/stars#readme",
   "dependencies": {
     "pixi.js": "^4.8.6"
   },
