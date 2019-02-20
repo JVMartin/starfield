@@ -5,7 +5,8 @@
   "main": "src/main.ts",
   "scripts": {
     "start": "parcel src/main.html",
-    "test": "jest -c=jest.unit.config.js"
+    "test": "jest -c=jest.unit.config.js",
+    "lint": "tslint 'src/**/*.ts'"
   },
   "repository": {
     "type": "git",

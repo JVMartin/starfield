@@ -1,5 +1,6 @@
 import { PixiApplication } from '../services/PixiApplication';
 import { Entity } from './Entity';
+
 import { Utils } from '../services/Utils';
 
 export class Star extends Entity {
@@ -8,7 +9,6 @@ export class Star extends Entity {
 
     constructor(private pixiApplication: PixiApplication) {
         super();
-
 
         this.gfx = new PIXI.Graphics();
         this.reset();
