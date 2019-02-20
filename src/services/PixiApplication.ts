@@ -14,7 +14,7 @@ export class PixiApplication {
     }
 
     public inject(): void {
-        const gameElement = document.getElementById('game');
+        const gameElement: HTMLElement = document.getElementById('game');
         gameElement.innerHTML = '';
         gameElement.appendChild(this.application.view);
     }

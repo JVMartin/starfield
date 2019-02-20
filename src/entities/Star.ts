@@ -1,7 +1,7 @@
 import { PixiApplication } from '../services/PixiApplication';
-import { Entity } from './Entity';
-
 import { Utils } from '../services/Utils';
+
+import { Entity } from './Entity';
 
 export class Star extends Entity {
     private gfx: PIXI.Graphics;
@@ -22,7 +22,7 @@ export class Star extends Entity {
      */
     public reset(): void {
         this.gfx.clear();
-        const size = Utils.randomInt(1, 3);
+        const size: number = Utils.randomInt(1, 3);
         this.gfx.beginFill(0xFFFFFF, Utils.randomFloat(0.5, 1));
         this.gfx.drawCircle(0, 0, size);
         this.gfx.endFill();

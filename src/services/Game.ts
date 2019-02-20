@@ -1,5 +1,6 @@
 import { Entity } from '../entities/Entity';
 import { StarField } from '../entities/StarField';
+
 import { PixiApplication } from './PixiApplication';
 
 export class Game {
@@ -10,7 +11,7 @@ export class Game {
     }
 
     public populate(): void {
-        const starField = new StarField(this.pixiApplication);
+        const starField: StarField = new StarField(this.pixiApplication);
         starField.createStars(250);
 
         this.entities.push(starField);
@@ -19,6 +20,6 @@ export class Game {
     public run(): void {
         requestAnimationFrame(() => this.run());
 
-        this.entities.map(entity => entity.update());
+        this.entities.map((entity: Entity) => entity.update());
     }
 }

@@ -1,12 +1,12 @@
 import './main.scss';
-import { PixiApplication } from './services/PixiApplication';
 import { Game } from './services/Game';
+import { PixiApplication } from './services/PixiApplication';
 
-(() => {
-    const pixiApplication = new PixiApplication(700, 700);
+(async (): Promise<void> => {
+    const pixiApplication: PixiApplication = new PixiApplication(700, 700);
     pixiApplication.inject();
 
-    const game = new Game(pixiApplication);
+    const game: Game = new Game(pixiApplication);
     game.populate();
     game.run();
 })();

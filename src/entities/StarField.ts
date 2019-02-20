@@ -13,12 +13,12 @@ export class StarField extends Entity {
     public createStars(n: number): void {
         this.stars = [];
 
-        for (let i = 0; i < n; ++i) {
+        for (let i: number = 0; i < n; ++i) {
             this.stars.push(new Star(this.pixiApplication));
         }
     }
 
     public update(): void {
-        this.stars.map(star => star.update());
+        this.stars.map((star: Star) => star.update());
     }
 }
