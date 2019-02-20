@@ -1,6 +1,7 @@
 import { PixiApplication } from '../services/PixiApplication';
-import { Star } from './Star';
+
 import { Entity } from './Entity';
+import { Star } from './Star';
 
 export class StarField extends Entity {
     private stars: Star[];
