@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel src/main.html",
     "test": "jest -c=jest.unit.config.js",
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && parcel build src/main.html",
     "clean": "rimraf dist",
     "lint": "tslint 'src/**/*.ts' 'tests/**/*.ts'"
   },
