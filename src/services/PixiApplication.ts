@@ -13,6 +13,10 @@ export class PixiApplication {
         });
     }
 
+    /**
+     * Replace the Pixi application into the DOM.
+     * Enables hot-reloading.
+     */
     public replaceInDOM(): void {
         const gameElement: HTMLElement = document.getElementById('game');
         gameElement.innerHTML = '';
