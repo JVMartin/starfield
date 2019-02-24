@@ -1,6 +1,6 @@
-# Snek
+# starfield
 
-Is Snek game written in TypeScript.
+A field of stars implemented in TypeScript with Pixi.js.
 
 ## Prerequisites
 
