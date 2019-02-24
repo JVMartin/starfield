@@ -14,6 +14,10 @@ export class Game {
         this.entities = [];
     }
 
+    /**
+     * Populate the entities array, and perform any binding with the user
+     * inputs that the entities may need.
+     */
     public initialize(): void {
         const starField: StarField = new StarField(this.pixiApplication);
         starField.setDesiredStarCount(this.starsSlider.getValue());
@@ -25,6 +29,9 @@ export class Game {
         });
     }
 
+    /**
+     * This is our game / animation loop.
+     */
     public run(): void {
         requestAnimationFrame(this.run.bind(this));
 
