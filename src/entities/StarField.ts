@@ -12,6 +12,10 @@ export class StarField extends Entity {
         this.stars = [];
     }
 
+    /**
+     * Add or remove stars from our stars array until the array is
+     * the desired size.
+     */
     public setDesiredStarCount(n: number): void {
         if (n >= this.stars.length) {
             const numToAdd: number = n - this.stars.length;
@@ -27,7 +31,10 @@ export class StarField extends Entity {
         }
     }
 
+    /**
+     * Delegate to the star entities.
+     */
     public update(): void {
-        this.stars.map((star: Star) => star.update());
+        this.stars.forEach((star: Star) => star.update());
     }
 }
