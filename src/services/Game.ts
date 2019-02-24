@@ -4,9 +4,9 @@ import { StarField } from '../entities/StarField';
 import { PixiApplication } from './PixiApplication';
 
 export class Game {
-    private entities: Entity[];
+    private readonly entities: Entity[];
 
-    constructor(private pixiApplication: PixiApplication) {
+    constructor(private readonly pixiApplication: PixiApplication) {
         this.entities = [];
     }
 

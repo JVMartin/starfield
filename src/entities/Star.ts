@@ -4,10 +4,10 @@ import { Utils } from '../services/Utils';
 import { Entity } from './Entity';
 
 export class Star extends Entity {
-    private gfx: PIXI.Graphics;
+    private readonly gfx: PIXI.Graphics;
     private vy: number;
 
-    constructor(private pixiApplication: PixiApplication) {
+    constructor(private readonly pixiApplication: PixiApplication) {
         super();
 
         this.gfx = new PIXI.Graphics();
