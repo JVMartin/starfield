@@ -20,6 +20,6 @@ export class Game {
     public run(): void {
         requestAnimationFrame(() => this.run());
 
-        this.entities.map((entity: Entity) => entity.update());
+        this.entities.forEach((entity: Entity) => entity.update());
     }
 }
