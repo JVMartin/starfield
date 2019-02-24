@@ -9,7 +9,7 @@ import { Slider } from './widgets/Slider';
 
     const starsSlider: Slider = new Slider('stars');
 
-    const game: Game = new Game(pixiApplication);
+    const game: Game = new Game(pixiApplication, starsSlider);
     game.populate();
     game.run();
 })();

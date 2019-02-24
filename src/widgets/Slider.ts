@@ -12,6 +12,10 @@ export class Slider {
         this.onInput();
     }
 
+    public getValue(): number {
+        return this.value;
+    }
+
     private onInput(): void {
         this.value = Number(this.inputElement.value);
 
