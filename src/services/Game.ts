@@ -22,7 +22,7 @@ export class Game {
     }
 
     public run(): void {
-        requestAnimationFrame(() => this.run());
+        requestAnimationFrame(this.run.bind(this));
 
         this.entities.forEach((entity: Entity) => entity.update());
     }
