@@ -10,7 +10,7 @@ export class StarField extends Entity {
         super();
     }
 
-    public createStars(n: number): void {
+    public setDesiredStarCount(n: number): void {
         this.stars = [];
 
         for (let i: number = 0; i < n; ++i) {

@@ -16,9 +16,13 @@ export class Game {
 
     public populate(): void {
         const starField: StarField = new StarField(this.pixiApplication);
-        starField.createStars(this.starsSlider.getValue());
+        starField.setDesiredStarCount(this.starsSlider.getValue());
 
         this.entities.push(starField);
+
+        this.starsSlider.addCallback((value: number) => {
+            starField.setDesiredStarCount(value);
+        });
     }
 
     public run(): void {
