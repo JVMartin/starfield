@@ -8,13 +8,22 @@ export class StarField extends Entity {
 
     constructor(private pixiApplication: PixiApplication) {
         super();
+
+        this.stars = [];
     }
 
     public setDesiredStarCount(n: number): void {
-        this.stars = [];
-
-        for (let i: number = 0; i < n; ++i) {
-            this.stars.push(new Star(this.pixiApplication));
+        if (n >= this.stars.length) {
+            const numToAdd: number = n - this.stars.length;
+            for (let i: number = 0; i < numToAdd; ++i) {
+                this.stars.push(new Star(this.pixiApplication));
+            }
+        } else {
+            const numToRemove: number = this.stars.length - n;
+            for (let i: number = 0; i < numToRemove; ++i) {
+                const starToRemove: Star = this.stars.pop();
+                starToRemove.destroy();
+            }
         }
     }
 

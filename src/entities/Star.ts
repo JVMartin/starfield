@@ -38,4 +38,8 @@ export class Star extends Entity {
             this.reset();
         }
     }
+
+    public destroy(): void {
+        this.pixiApplication.application.stage.removeChild(this.gfx);
+    }
 }
