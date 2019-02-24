@@ -5,11 +5,11 @@ import { Slider } from './widgets/Slider';
 
 ((): void => {
     const pixiApplication: PixiApplication = new PixiApplication(700, 700);
-    pixiApplication.inject();
+    pixiApplication.replaceInDOM();
 
     const starsSlider: Slider = new Slider('stars');
 
     const game: Game = new Game(pixiApplication, starsSlider);
-    game.populate();
+    game.initialize();
     game.run();
 })();

@@ -13,7 +13,7 @@ export class PixiApplication {
         });
     }
 
-    public inject(): void {
+    public replaceInDOM(): void {
         const gameElement: HTMLElement = document.getElementById('game');
         gameElement.innerHTML = '';
         gameElement.appendChild(this.application.view);

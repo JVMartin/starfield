@@ -14,7 +14,7 @@ export class Game {
         this.entities = [];
     }
 
-    public populate(): void {
+    public initialize(): void {
         const starField: StarField = new StarField(this.pixiApplication);
         starField.setDesiredStarCount(this.starsSlider.getValue());
 
