@@ -10,4 +10,5 @@ script:
 - npm run build
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 - docker build -t jvmartin/starfield:$TRAVIS_COMMIT .
+- docker tag jvmartin/starfield:$TRAVIS_COMMIT jvmartin/starfield:$TRAVIS_BRANCH
 - docker push jvmartin/starfield
