@@ -9,6 +9,8 @@ script:
 - npm test
 - npm run lint
 - npm run build
+# Prepare qemu for mutli arch docker build
+- docker run --rm --privileged multiarch/qemu-user-static:register --reset
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 - docker build -t jvmartin/starfield:$TRAVIS_COMMIT .
 - docker tag jvmartin/starfield:$TRAVIS_COMMIT jvmartin/starfield:$TRAVIS_BRANCH
