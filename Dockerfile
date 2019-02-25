@@ -4,7 +4,7 @@
 # If you wish to build locally, replicate the setup in our
 # .travis.yml before attempting a docker build.
 ##############################################################
-FROM openresty/openresty:1.13.6.2-1-alpine
+FROM nginx:alpine
 
 WORKDIR /opt/app
 
