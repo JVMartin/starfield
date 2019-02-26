@@ -47,7 +47,7 @@ export class Star extends Entity {
                 ];
             case 'pink':
                 return [
-                    1 - (this.colorize / 100), // <- TODO
+                    ((this.colorize / 100) * .1 + 0.9),
                     1 - (this.colorize / 100),
                     1,
                 ];
