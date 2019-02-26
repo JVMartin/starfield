@@ -6,26 +6,33 @@ import { Entity } from './Entity';
 export class Star extends Entity {
     private readonly gfx: PIXI.Graphics;
     private vy: number;
+    private radius: number;
+    private color: number;
 
     constructor(private readonly pixiApplication: PixiApplication, private colorize: number) {
         super();
 
         this.gfx = new PIXI.Graphics();
-        this.reset();
+        this.fromTheTop();
         this.gfx.y = Utils.randomInt(0, this.pixiApplication.height);
+        this.draw();
 
         pixiApplication.application.stage.addChild(this.gfx);
+    }
+
+    public draw(): void {
+        this.gfx.clear();
+        this.gfx.beginFill(this.color);
+        this.gfx.drawCircle(0, 0, this.radius);
+        this.gfx.endFill();
     }
 
     /**
      * Same as in constructor, except start from the top of the screen (y=0).
      */
-    public reset(): void {
-        this.gfx.clear();
-        const size: number = Utils.randomInt(1, 3);
-        this.gfx.beginFill(0xFFFFFF, Utils.randomFloat(0.5, 1));
-        this.gfx.drawCircle(0, 0, size);
-        this.gfx.endFill();
+    public fromTheTop(): void {
+        this.radius = Utils.randomInt(1, 3);
+        this.color = Utils.randomFloat(0, 0.5) * ((this.colorize / 100) + 0.5) * 0xFFFFFF, Utils.randomFloat(0.5, 1);
         this.gfx.x = Utils.randomInt(0, this.pixiApplication.width);
         this.gfx.y = -1 * Utils.randomInt(0, 100);
 
@@ -35,7 +42,7 @@ export class Star extends Entity {
     public update(): void {
         this.gfx.y += this.vy;
         if (this.gfx.y > this.pixiApplication.height) {
-            this.reset();
+            this.fromTheTop();
         }
     }
 
