@@ -64,7 +64,6 @@ export class Star extends Entity {
         this.gfx.y = -1 * Utils.randomInt(0, 100);
         this.vy = Utils.randomFloat(0.5, 3);
 
-        // Flip a coin for a red or blue star
         switch (Utils.randomInt(0, 2)) {
             case 0:
                 this.color = 'red';
