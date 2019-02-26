@@ -7,9 +7,7 @@ export class Star extends Entity {
     private readonly gfx: PIXI.Graphics;
     private vy: number;
     private radius: number;
-    private colorRed: number;
-    private colorGreen: number;
-    private colorBlue: number;
+    private color: 'red' | 'blue';
     private alpha: number;
 
     constructor(private readonly pixiApplication: PixiApplication, private colorize: number) {
@@ -28,11 +26,19 @@ export class Star extends Entity {
      */
     public draw(): void {
         this.gfx.clear();
-        this.gfx.beginFill(PIXI.utils.rgb2hex([
-            this.applyColorize(this.colorRed),
-            this.applyColorize(this.colorGreen),
-            this.applyColorize(this.colorBlue),
-        ]), this.alpha);
+        if (this.color === 'red') {
+            this.gfx.beginFill(PIXI.utils.rgb2hex([
+                1,
+                (this.colorize / 100),
+                (this.colorize / 100),
+            ]), this.alpha);
+        } else {
+            this.gfx.beginFill(PIXI.utils.rgb2hex([
+                (this.colorize / 100),
+                (this.colorize / 100),
+                1,
+            ]), this.alpha);
+        }
         this.gfx.drawCircle(0, 0, this.radius);
         this.gfx.endFill();
     }
@@ -49,13 +55,9 @@ export class Star extends Entity {
 
         // Flip a coin for a red or blue star
         if (Utils.randomInt(0, 1) === 0) {
-            this.colorRed = Utils.randomFloat(0.2, 1);
-            this.colorGreen = 0.4;
-            this.colorBlue = 0.4;
+            this.color = 'red';
         } else {
-            this.colorRed = 0.4;
-            this.colorGreen = 0.4;
-            this.colorBlue = Utils.randomFloat(0.2, 1);
+            this.color = 'blue';
         }
     }
 
@@ -68,14 +70,11 @@ export class Star extends Entity {
         this.gfx.y += this.vy;
         if (this.gfx.y > this.pixiApplication.height) {
             this.fromTheTop();
+            this.draw();
         }
     }
 
     public destroy(): void {
         this.pixiApplication.application.stage.removeChild(this.gfx);
-    }
-
-    private applyColorize(rgbValue: number): number {
-        return rgbValue * ((this.colorize / 100 * 0.5) + 0.5);
     }
 }
