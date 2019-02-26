@@ -6,7 +6,7 @@ import { Star } from './Star';
 export class StarField extends Entity {
     private stars: Star[];
 
-    constructor(private pixiApplication: PixiApplication) {
+    constructor(private pixiApplication: PixiApplication, private colorize: number) {
         super();
 
         this.stars = [];
@@ -20,7 +20,7 @@ export class StarField extends Entity {
         if (n >= this.stars.length) {
             const numToAdd: number = n - this.stars.length;
             for (let i: number = 0; i < numToAdd; ++i) {
-                this.stars.push(new Star(this.pixiApplication));
+                this.stars.push(new Star(this.pixiApplication, this.colorize));
             }
         } else {
             const numToRemove: number = this.stars.length - n;
@@ -29,6 +29,10 @@ export class StarField extends Entity {
                 starToRemove.destroy();
             }
         }
+    }
+
+    public setColorize(colorize: number): void {
+        this.colorize = colorize;
     }
 
     /**

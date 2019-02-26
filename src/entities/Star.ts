@@ -7,7 +7,7 @@ export class Star extends Entity {
     private readonly gfx: PIXI.Graphics;
     private vy: number;
 
-    constructor(private readonly pixiApplication: PixiApplication) {
+    constructor(private readonly pixiApplication: PixiApplication, private colorize: number) {
         super();
 
         this.gfx = new PIXI.Graphics();

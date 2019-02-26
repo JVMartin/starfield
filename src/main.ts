@@ -14,11 +14,12 @@ import { Slider } from './widgets/Slider';
     // Create widgets for user input
     // -------------------------------------------------
     const starsSlider: Slider = new Slider('stars');
+    const colorizeSlider: Slider = new Slider('colorize');
 
     // -------------------------------------------------
     // Create our game and set it in motion
     // -------------------------------------------------
-    const game: Game = new Game(pixiApplication, starsSlider);
+    const game: Game = new Game(pixiApplication, starsSlider, colorizeSlider);
     game.initialize();
     game.run();
 })();
