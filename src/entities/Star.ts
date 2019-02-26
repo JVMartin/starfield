@@ -29,13 +29,13 @@ export class Star extends Entity {
         if (this.color === 'red') {
             this.gfx.beginFill(PIXI.utils.rgb2hex([
                 1,
-                (this.colorize / 100),
-                (this.colorize / 100),
+                1 - (this.colorize / 100),
+                1 - (this.colorize / 100),
             ]), this.alpha);
         } else {
             this.gfx.beginFill(PIXI.utils.rgb2hex([
-                (this.colorize / 100),
-                (this.colorize / 100),
+                1 - (this.colorize / 100),
+                1 - (this.colorize / 100),
                 1,
             ]), this.alpha);
         }
