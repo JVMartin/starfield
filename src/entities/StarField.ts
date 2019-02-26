@@ -33,6 +33,7 @@ export class StarField extends Entity {
 
     public setColorize(colorize: number): void {
         this.colorize = colorize;
+        this.stars.forEach((star: Star) => star.setColorize(this.colorize));
     }
 
     /**
