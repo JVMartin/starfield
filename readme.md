@@ -4,6 +4,10 @@
 
 A field of stars implemented in TypeScript with Pixi.js.
 
+## Demo
+
+[Check it out!](https://starfield.jacobvmartin.com)
+
 ## Docker images
 
 This repository publishes images for both x86 (intel/amd) and ARM (Raspberry pi).
