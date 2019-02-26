@@ -58,7 +58,7 @@ export class Star extends Entity {
      * Randomize the aspects of the star, and re-start from the top.
      */
     public fromTheTop(): void {
-        this.radius = Utils.randomInt(1, 3);
+        this.radius = Utils.randomFloat(1, 3);
         this.alpha = Utils.randomFloat(0.5, 1);
         this.gfx.x = Utils.randomInt(0, this.pixiApplication.width);
         this.gfx.y = -1 * Utils.randomInt(0, 100);
