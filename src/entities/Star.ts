@@ -7,7 +7,7 @@ export class Star extends Entity {
     private readonly gfx: PIXI.Graphics;
     private vy: number;
     private radius: number;
-    private color: 'red' | 'blue';
+    private color: 'red' | 'blue' | 'pink';
     private alpha: number;
 
     constructor(private readonly pixiApplication: PixiApplication, private colorize: number) {
@@ -26,21 +26,32 @@ export class Star extends Entity {
      */
     public draw(): void {
         this.gfx.clear();
-        if (this.color === 'red') {
-            this.gfx.beginFill(PIXI.utils.rgb2hex([
-                1,
-                1 - (this.colorize / 100),
-                1 - (this.colorize / 100),
-            ]), this.alpha);
-        } else {
-            this.gfx.beginFill(PIXI.utils.rgb2hex([
-                1 - (this.colorize / 100),
-                1 - (this.colorize / 100),
-                1,
-            ]), this.alpha);
-        }
+        this.gfx.beginFill(PIXI.utils.rgb2hex(this.fillColor()), this.alpha);
         this.gfx.drawCircle(0, 0, this.radius);
         this.gfx.endFill();
+    }
+
+    public fillColor(): [number, number, number] {
+        switch (this.color) {
+            case 'red':
+                return [
+                    1,
+                    1 - (this.colorize / 100),
+                    1 - (this.colorize / 100),
+                ];
+            case 'blue':
+                return [
+                    1 - (this.colorize / 100),
+                    1 - (this.colorize / 100),
+                    1,
+                ];
+            case 'pink':
+                return [
+                    1 - (this.colorize / 100), // <- TODO
+                    1 - (this.colorize / 100),
+                    1,
+                ];
+        }
     }
 
     /**
@@ -54,10 +65,16 @@ export class Star extends Entity {
         this.vy = Utils.randomFloat(0.5, 3);
 
         // Flip a coin for a red or blue star
-        if (Utils.randomInt(0, 1) === 0) {
-            this.color = 'red';
-        } else {
-            this.color = 'blue';
+        switch (Utils.randomInt(0, 2)) {
+            case 0:
+                this.color = 'red';
+                break;
+            case 1:
+                this.color = 'blue';
+                break;
+            case 2:
+                this.color = 'pink';
+                break;
         }
     }
 
