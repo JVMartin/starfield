@@ -10,6 +10,7 @@ export class Game {
     constructor(
         private readonly pixiApplication: PixiApplication,
         private readonly starsSlider: Slider,
+        private readonly colorizeSlider: Slider,
     ) {
         this.entities = [];
     }
@@ -19,13 +20,19 @@ export class Game {
      * inputs that the entities may need.
      */
     public initialize(): void {
-        const starField: StarField = new StarField(this.pixiApplication);
+        const starField: StarField = new StarField(
+            this.pixiApplication,
+            this.colorizeSlider.getValue(),
+        );
         starField.setDesiredStarCount(this.starsSlider.getValue());
 
         this.entities.push(starField);
 
         this.starsSlider.addCallback((value: number) => {
             starField.setDesiredStarCount(value);
+        });
+        this.colorizeSlider.addCallback((value: number) => {
+            starField.setColorize(value);
         });
     }
 
