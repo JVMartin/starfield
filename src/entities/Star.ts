@@ -21,6 +21,9 @@ export class Star extends Entity {
         pixiApplication.application.stage.addChild(this.gfx);
     }
 
+    /**
+     * Clear and re-draw the star.
+     */
     public draw(): void {
         this.gfx.clear();
         this.gfx.beginFill(this.color * (this.colorize / 100), this.alpha);
@@ -29,7 +32,7 @@ export class Star extends Entity {
     }
 
     /**
-     * Same as in constructor, except start from the top of the screen (y=0).
+     * Randomize the aspects of the star, and re-start from the top.
      */
     public fromTheTop(): void {
         this.radius = Utils.randomInt(1, 3);
