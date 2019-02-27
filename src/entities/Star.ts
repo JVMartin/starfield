@@ -93,7 +93,6 @@ export class Star extends Entity {
 
     public setDepth(depth: number): void {
         this.depth = depth;
-        this.draw();
     }
 
     public update(): void {
