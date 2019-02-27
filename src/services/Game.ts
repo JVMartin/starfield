@@ -13,6 +13,7 @@ export class Game {
         private readonly pixiApplication: PixiApplication,
         private readonly starsSlider: Slider,
         private readonly colorizeSlider: Slider,
+        private readonly depthSlider: Slider,
     ) {
         this.entities = [];
     }
@@ -25,6 +26,7 @@ export class Game {
         const starField: StarField = new StarField(
             this.pixiApplication,
             this.colorizeSlider.getValue(),
+            this.depthSlider.getValue(),
         );
         starField.setDesiredStarCount(this.starsSlider.getValue());
 
@@ -36,6 +38,9 @@ export class Game {
         this.colorizeSlider.setCallback(throttle(50, (value: number) => {
             starField.setColorize(value);
         }));
+        this.depthSlider.setCallback((value: number) => {
+            starField.setDepth(value);
+        });
     }
 
     /**

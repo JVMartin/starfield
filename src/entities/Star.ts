@@ -4,13 +4,22 @@ import { Utils } from '../services/Utils';
 import { Entity } from './Entity';
 
 export class Star extends Entity {
+    /**
+     * The minimum velocity of a star.
+     */
+    private static readonly BASE_VY: number = 1.5;
+
     private readonly gfx: PIXI.Graphics;
     private vy: number;
     private radius: number;
     private color: 'red' | 'blue' | 'pink';
     private alpha: number;
 
-    constructor(private readonly pixiApplication: PixiApplication, private colorize: number) {
+    constructor(
+        private readonly pixiApplication: PixiApplication,
+        private colorize: number,
+        private depth: number,
+    ) {
         super();
 
         this.gfx = new PIXI.Graphics();
@@ -62,7 +71,7 @@ export class Star extends Entity {
         this.alpha = Utils.randomFloat(0.5, 1);
         this.gfx.x = Utils.randomInt(0, this.pixiApplication.width);
         this.gfx.y = -1 * Utils.randomInt(0, 100);
-        this.vy = Utils.randomFloat(0.5, 3);
+        this.vy = Utils.randomFloat(0, 2.5);
 
         switch (Utils.randomInt(0, 2)) {
             case 0:
@@ -82,8 +91,13 @@ export class Star extends Entity {
         this.draw();
     }
 
+    public setDepth(depth: number): void {
+        this.depth = depth;
+        this.draw();
+    }
+
     public update(): void {
-        this.gfx.y += this.vy;
+        this.gfx.y += Star.BASE_VY + (this.depth / 100) * this.vy;
         if (this.gfx.y > this.pixiApplication.height) {
             this.fromTheTop();
             this.draw();

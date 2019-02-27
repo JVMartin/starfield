@@ -15,11 +15,12 @@ import { Slider } from './widgets/Slider';
     // -------------------------------------------------
     const starsSlider: Slider = new Slider('stars');
     const colorizeSlider: Slider = new Slider('colorize');
+    const depthSlider: Slider = new Slider('depth');
 
     // -------------------------------------------------
     // Create our game and set it in motion
     // -------------------------------------------------
-    const game: Game = new Game(pixiApplication, starsSlider, colorizeSlider);
+    const game: Game = new Game(pixiApplication, starsSlider, colorizeSlider, depthSlider);
     game.initialize();
     game.run();
 })();
