@@ -1,3 +1,5 @@
+import { throttle } from 'lodash/fp';
+
 import { Entity } from '../entities/Entity';
 import { StarField } from '../entities/StarField';
 import { Slider } from '../widgets/Slider';
@@ -28,12 +30,12 @@ export class Game {
 
         this.entities.push(starField);
 
-        this.starsSlider.addCallback((value: number) => {
+        this.starsSlider.setCallback((value: number) => {
             starField.setDesiredStarCount(value);
         });
-        this.colorizeSlider.addCallback((value: number) => {
+        this.colorizeSlider.setCallback(throttle(50, (value: number) => {
             starField.setColorize(value);
-        });
+        }));
     }
 
     /**

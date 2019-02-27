@@ -14,7 +14,7 @@ export class Slider {
     /**
      * An array of callbacks to run when onInput() is called.
      */
-    private readonly callbacks: Array<(value: number) => void>;
+    private callback: (value: number) => void;
 
     constructor(name: string) {
         this.inputElement = document.getElementById(`slider-${name}`) as HTMLInputElement;
@@ -22,13 +22,13 @@ export class Slider {
 
         this.outputElement = document.getElementById(`slider-${name}-output`);
 
-        this.callbacks = [];
+        this.callback = (): void => { return; };
 
         this.onInput();
     }
 
-    public addCallback(callback: (value: number) => void): void {
-        this.callbacks.push(callback);
+    public setCallback(callback: (value: number) => void): void {
+        this.callback = callback;
     }
 
     public getValue(): number {
@@ -40,8 +40,6 @@ export class Slider {
 
         this.outputElement.innerHTML = String(this.value);
 
-        for (const callback of this.callbacks) {
-            callback(this.value);
-        }
+        this.callback(this.value);
     }
 }
