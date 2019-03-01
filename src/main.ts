@@ -7,20 +7,20 @@ import { Slider } from './widgets/Slider';
     // -------------------------------------------------
     // Create the Pixi application
     // -------------------------------------------------
-    const pixiApplication: PixiApplication = new PixiApplication(700, 700);
+    const pixiApplication = new PixiApplication(700, 700);
     pixiApplication.replaceInDOM();
 
     // -------------------------------------------------
     // Create widgets for user input
     // -------------------------------------------------
-    const starsSlider: Slider = new Slider('stars');
-    const colorizeSlider: Slider = new Slider('colorize');
-    const depthSlider: Slider = new Slider('depth');
+    const starsSlider = new Slider('stars');
+    const colorizeSlider = new Slider('colorize');
+    const depthSlider = new Slider('depth');
 
     // -------------------------------------------------
     // Create our game and set it in motion
     // -------------------------------------------------
-    const game: Game = new Game(pixiApplication, starsSlider, colorizeSlider, depthSlider);
+    const game = new Game(pixiApplication, starsSlider, colorizeSlider, depthSlider);
     game.initialize();
     game.run();
 })();

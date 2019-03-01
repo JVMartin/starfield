@@ -23,16 +23,18 @@ export class StarField extends Entity {
     public setDesiredStarCount(n: number): void {
         if (n >= this.stars.length) {
             // Add stars to the desired number.
-            const numToAdd: number = n - this.stars.length;
-            for (let i: number = 0; i < numToAdd; ++i) {
+            const numToAdd = n - this.stars.length;
+            for (let i = 0; i < numToAdd; ++i) {
                 this.stars.push(new Star(this.pixiApplication, this.colorize, this.depth));
             }
         } else {
             // Remove stars to the desired number.
-            const numToRemove: number = this.stars.length - n;
-            for (let i: number = 0; i < numToRemove; ++i) {
-                const starToRemove: Star = this.stars.pop();
-                starToRemove.destroy();
+            const numToRemove = this.stars.length - n;
+            for (let i = 0; i < numToRemove; ++i) {
+                const starToRemove = this.stars.pop();
+                if (starToRemove) {
+                    starToRemove.destroy();
+                }
             }
         }
     }
