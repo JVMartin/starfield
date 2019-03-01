@@ -8,6 +8,7 @@ export class StarField extends Entity {
 
     constructor(
         private pixiApplication: PixiApplication,
+        private x: number,
         private colorize: number,
         private depth: number,
     ) {
@@ -25,7 +26,7 @@ export class StarField extends Entity {
             // Add stars to the desired number.
             const numToAdd = n - this.stars.length;
             for (let i = 0; i < numToAdd; ++i) {
-                this.stars.push(new Star(this.pixiApplication, this.colorize, this.depth));
+                this.stars.push(new Star(this.pixiApplication, this.x, this.colorize, this.depth));
             }
         } else {
             // Remove stars to the desired number.
@@ -37,6 +38,11 @@ export class StarField extends Entity {
                 }
             }
         }
+    }
+
+    public setX(x: number): void {
+        this.x = x;
+        this.stars.forEach((star: Star) => star.setX(this.x));
     }
 
     public setColorize(colorize: number): void {

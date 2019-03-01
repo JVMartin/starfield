@@ -13,6 +13,7 @@ import { Slider } from './widgets/Slider';
     // -------------------------------------------------
     // Create widgets for user input
     // -------------------------------------------------
+    const xSlider = new Slider('x');
     const starsSlider = new Slider('stars');
     const colorizeSlider = new Slider('colorize');
     const depthSlider = new Slider('depth');
@@ -20,7 +21,7 @@ import { Slider } from './widgets/Slider';
     // -------------------------------------------------
     // Create our game and set it in motion
     // -------------------------------------------------
-    const game = new Game(pixiApplication, starsSlider, colorizeSlider, depthSlider);
+    const game = new Game(pixiApplication, xSlider, starsSlider, colorizeSlider, depthSlider);
     game.initialize();
     game.run();
 })();

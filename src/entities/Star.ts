@@ -17,6 +17,7 @@ export class Star extends Entity {
 
     constructor(
         private readonly pixiApplication: PixiApplication,
+        private x: number,
         private colorize: number,
         private depth: number,
     ) {
@@ -86,6 +87,10 @@ export class Star extends Entity {
         }
     }
 
+    public setX(x: number): void {
+        this.x = x;
+    }
+
     public setColorize(colorize: number): void {
         this.colorize = colorize;
         this.draw();
@@ -97,6 +102,13 @@ export class Star extends Entity {
 
     public update(): void {
         this.gfx.y += Star.BASE_VY + (this.depth / 100) * this.vy;
+        this.gfx.x += (this.x / 100) * 5;
+        if (this.gfx.x > this.pixiApplication.width) {
+            this.gfx.x = 0;
+        }
+        if (this.gfx.x < 0) {
+            this.gfx.x = this.pixiApplication.width;
+        }
         if (this.gfx.y > this.pixiApplication.height) {
             this.fromTheTop();
             this.draw();

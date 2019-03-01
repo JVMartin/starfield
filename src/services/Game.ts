@@ -11,6 +11,7 @@ export class Game {
 
     constructor(
         private readonly pixiApplication: PixiApplication,
+        private readonly xSlider: Slider,
         private readonly starsSlider: Slider,
         private readonly colorizeSlider: Slider,
         private readonly depthSlider: Slider,
@@ -25,6 +26,7 @@ export class Game {
     public initialize(): void {
         const starField = new StarField(
             this.pixiApplication,
+            this.xSlider.getValue(),
             this.colorizeSlider.getValue(),
             this.depthSlider.getValue(),
         );
@@ -32,6 +34,9 @@ export class Game {
 
         this.entities.push(starField);
 
+        this.xSlider.setCallback((value: number) => {
+            starField.setX(value);
+        });
         this.starsSlider.setCallback((value: number) => {
             starField.setDesiredStarCount(value);
         });
