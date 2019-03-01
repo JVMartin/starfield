@@ -9,7 +9,10 @@ export class Slider {
      */
     private readonly outputElement: HTMLElement;
 
-    private value: number;
+    /**
+     * Initialized in .onInput() called from constructor
+     */
+    private value!: number;
 
     /**
      * An array of callbacks to run when onInput() is called.
@@ -17,10 +20,18 @@ export class Slider {
     private callback: (value: number) => void;
 
     constructor(name: string) {
-        this.inputElement = document.getElementById(`slider-${name}`) as HTMLInputElement;
+        const inputElement = document.getElementById(`slider-${name}`);
+        if (!inputElement) {
+            throw new Error(`Could not find slider input element: #slider-${name}`);
+        }
+        this.inputElement = inputElement as HTMLInputElement;
         this.inputElement.oninput = this.onInput.bind(this);
 
-        this.outputElement = document.getElementById(`slider-${name}-output`);
+        const outputElement = document.getElementById(`slider-${name}-output`);
+        if (!outputElement) {
+            throw new Error(`Could not find slider output element: #slider-${name}`);
+        }
+        this.outputElement = outputElement;
 
         this.callback = (): void => { return; };
 
