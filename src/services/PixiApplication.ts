@@ -18,7 +18,10 @@ export class PixiApplication {
      * Enables hot-reloading.
      */
     public replaceInDOM(): void {
-        const gameElement: HTMLElement = document.getElementById('game');
+        const gameElement = document.getElementById('game');
+        if (!gameElement) {
+            throw new Error('Could not find #game element in DOM.');
+        }
         gameElement.innerHTML = '';
         gameElement.appendChild(this.application.view);
     }

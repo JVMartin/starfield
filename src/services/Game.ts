@@ -23,7 +23,7 @@ export class Game {
      * inputs that the entities may need.
      */
     public initialize(): void {
-        const starField: StarField = new StarField(
+        const starField = new StarField(
             this.pixiApplication,
             this.colorizeSlider.getValue(),
             this.depthSlider.getValue(),
