@@ -31,7 +31,7 @@ export class StarField extends Entity {
             // Remove stars to the desired number.
             const numToRemove = this.stars.length - n;
             for (let i = 0; i < numToRemove; ++i) {
-                const starToRemove: Star | undefined = this.stars.pop();
+                const starToRemove = this.stars.pop();
                 if (starToRemove) {
                     starToRemove.destroy();
                 }
