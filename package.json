@@ -8,7 +8,7 @@
     "test": "jest -c=jest.unit.config.js",
     "build": "npm run clean && parcel build src/main.html",
     "clean": "rimraf dist",
-    "lint": "tslint 'src/**/*.ts' 'tests/**/*.ts'"
+    "lint": "tslint 'src/**/*.ts' 'tests/**/*.ts' && tsc --noEmit"
   },
   "repository": {
     "type": "git",

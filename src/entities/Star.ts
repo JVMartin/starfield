@@ -10,10 +10,10 @@ export class Star extends Entity {
     private static readonly BASE_VY: number = 1.5;
 
     private readonly gfx: PIXI.Graphics;
-    private vy: number;
-    private radius: number;
-    private color: 'red' | 'blue' | 'pink';
-    private alpha: number;
+    private vy!: number;
+    private radius!: number;
+    private color!: 'red' | 'blue' | 'pink';
+    private alpha!: number;
 
     constructor(
         private readonly pixiApplication: PixiApplication,
