@@ -1,4 +1,4 @@
-import './main.scss';
+import './index.scss';
 import { Game } from './services/Game';
 import { PixiApplication } from './services/PixiApplication';
 import { Slider } from './widgets/Slider';

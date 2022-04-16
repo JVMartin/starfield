@@ -2,11 +2,11 @@
   "name": "stars",
   "version": "0.0.1",
   "description": "",
-  "main": "src/main.ts",
+  "main": "src/index.ts",
   "scripts": {
-    "start": "parcel src/main.html",
+    "start": "parcel src/index.html",
     "test": "jest -c=jest.unit.config.js",
-    "build": "npm run clean && parcel build src/main.html",
+    "build": "npm run clean && parcel build src/index.html",
     "clean": "rimraf dist",
     "lint": "tslint 'src/**/*.ts' 'tests/**/*.ts'"
   },
