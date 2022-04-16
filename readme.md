@@ -4,9 +4,14 @@
 
 A field of stars implemented in TypeScript with Pixi.js.
 
-## Demo
+## Run
 
-[Check it out!](https://starfield.jacobvmartin.com)
+Use node 12
+
+```
+npm install
+npm run start
+```
 
 ## Docker images
 
