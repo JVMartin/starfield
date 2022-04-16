@@ -4,6 +4,8 @@
 
 A field of stars implemented in TypeScript with Pixi.js.
 
+[Check it out here!](https://jvmartin.github.io/starfield-page/)
+
 ## Run
 
 Use node 12
